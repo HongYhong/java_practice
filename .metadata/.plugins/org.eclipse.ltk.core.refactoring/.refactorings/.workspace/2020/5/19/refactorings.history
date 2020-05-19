@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;error_exception_20200607&apos; to &apos;error_exception_20200507&apos;" description="Rename resource &apos;error_exception_20200607&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="/error_exception_20200607" name="error_exception_20200507" stamp="1588930812973" updateReferences="true"/>
+</session>

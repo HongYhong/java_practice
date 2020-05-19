@@ -1,0 +1,18 @@
+package com.hongfox.contact;
+/**
+ * 
+ * @Description A test for array
+ * @author yanhong hong Email:a524664992@gmail.com
+ * @version v1.0
+ * @data 2020年4月14日下午9:47:34
+ *
+ *
+ *
+ */
+
+public class ArrayTest {
+	public static void main(String[] args) {
+		int ids[];
+		ids = new int[] {1001,1002,1003,1004};
+	}
+}

@@ -1,0 +1,12 @@
+package com.hongfox.domain;
+
+public class Designer extends Programmer {
+	private double bonus;
+	
+	public Designer(int id, String name, int age, double salary, int memberId, Equitment equitment, Status status,double bonus) {
+		super(id, name, age, salary, memberId, equitment, status);
+		this.bonus = bonus;
+
+	}
+	
+}

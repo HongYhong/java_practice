@@ -1,0 +1,29 @@
+package com.hongfox.ui;
+
+import com.hongfox.domain.Employee;
+import com.hongfox.services.NameListServices;
+import com.hongfox.services.TeamServices;
+
+public class TeamView {
+
+	private NameListServices nameSvc = new NameListServices();
+	private TeamServices teamSvc = new TeamServices();
+
+	public static void main(String[] args) {
+		TeamView teamview = new TeamView();
+		teamview.enterMainMenu();
+	}
+	
+	public void enterMainMenu() {
+		System.out.println("---------------------------团队列表--------------------------------");
+		listAllMember();
+	}
+
+	public void listAllMember() {
+		Employee[] employees = nameSvc.getAllEmployees();
+		for (int i = 0; i < employees.length; i++) {
+			System.out.println(employees[i]);
+		}
+	}
+
+}

@@ -1,0 +1,38 @@
+package com.hongfox.junit;
+
+import org.junit.Test;
+
+import com.hongfox.domain.Employee;
+import com.hongfox.services.NameListServices;
+import com.hongfox.services.TeamException;
+import com.hongfox.services.TeamServices;
+
+public class testTeamServices {
+	TeamServices teamservices = new TeamServices();
+	NameListServices namelisListServices = new NameListServices();
+	Employee[] employees = namelisListServices.getAllEmployees();
+	@Test
+	public void testAddMember() {
+		try {
+			
+			
+			
+			Employee[] team = teamservices.getTeam();
+			//非开发人员错误
+			teamservices.addMember(employees[0]);
+			//添加超过三个程序员
+
+		} catch (TeamException e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				teamservices.addMember(employees[1]);
+				teamservices.addMember(employees[4]);
+				teamservices.addMember(employees[5]);
+				teamservices.addMember(employees[8]);
+			}catch(TeamException e) {
+				
+			}
+		}
+	}
+}

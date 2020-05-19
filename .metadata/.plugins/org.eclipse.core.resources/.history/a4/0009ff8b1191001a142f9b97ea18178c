@@ -1,0 +1,15 @@
+package com.hongfox.exer2;
+
+public class EcmDef {
+	public static void main(String[] args) {
+		
+	}
+	
+	public int ecm(int a,int b) throws ArithmeticException {
+		try {
+			return a/b;
+		}catch(ArithmeticException e) {
+			throw e;
+		}
+	}
+}

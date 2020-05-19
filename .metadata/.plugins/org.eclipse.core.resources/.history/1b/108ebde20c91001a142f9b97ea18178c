@@ -1,0 +1,80 @@
+package error_exception_20200607;
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+
+import org.junit.Test;
+
+/*
+ * 1、抓抛模型
+ *    抛：程序执行到异常处形成一个错误类的对象并抛出
+ *    抓：对抛出的异常的处理
+ *    (1) try...catch...finally(一般用于处理编译时异常，运行时异常没必要处理)
+ *        try{
+ *        可能出现异常的代码
+ *        }catch(错误类型2 变量名2){
+ *        错误处理方式1
+ *        }catch(错误类型2 变量名2){
+ *        错误处理方式2
+ *        }finally{
+ *        最后一定执行（作用体现在如果try最后返回）
+ *        }
+ *        
+ *        如果错误类型存在父子类关系，那么子类必须在父类之上，否则编译错误。
+ *        e.getMessage();
+ *        e.printStackTrace();
+ *        
+ *        异常处理后可以继续执行，在异常处理外部声明的变量在跳出异常处理过程后仍然可以使用。
+ *        用该方法处理编译异常：编译不报错，运行仍然会出错。
+ *        
+ *        一些异常JVM无法直接回收：
+ *        	比如网络编程Socket,数据库连接，输入输出流，需要手动关闭。这是无论是否异常，均需要关闭，因此要把它放到
+ *        finally里面。
+ *     （2）throws + 异常类型 向上抛出错误。抛给调用者，并未处理掉。
+ *     
+ *     子类重写的方法抛出的异常不能大于父类方法抛出的异常。从多态去理解这个问题。
+ *     
+ *     如何选择：在方法A中如果调用其它方法abc，且abc为递进关系，那么abc中用throws，A中用try...catch...
+ */
+
+public class ThrowCatchTest {
+	@Test
+	public void test1() {
+		String str = "abc";
+		try {
+			int num = Integer.parseInt(str);
+		} catch (NumberFormatException e) {
+			System.out.println("出错啦！数据类型转化错误！");
+			System.out.println(e.getMessage());
+		} catch (NullPointerException e) {
+			System.out.println("空指针错误！");
+		}
+
+	}
+
+	@Test
+	public void test2() {
+		FileInputStream fis = null;
+		try {
+			File file = new File("hong.txt");
+			fis = new FileInputStream(file);
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		} finally {
+			System.out.println("close");
+			try {
+				if (fis != null)                   //因为我们没有catch NullPointerException
+					fis.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+	}
+	
+
+
+}

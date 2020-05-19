@@ -1,0 +1,8 @@
+package com.hongfox.services;
+
+public class Snippet {
+	public static void main(String[] args) {
+		胡微玮
+	}
+}
+

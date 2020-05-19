@@ -1,0 +1,17 @@
+package com.hongfox.junit;
+
+import org.junit.Test;
+
+import com.hongfox.domain.Employee;
+import com.hongfox.services.NameListServices;
+
+public class testNameListServices {
+	public NameListServices namelistservices = new NameListServices();
+	
+	@Test
+	public void testGetAllEmployees() {
+		Employee[] employees = namelistservices.getAllEmployees();
+		
+	}
+	
+}

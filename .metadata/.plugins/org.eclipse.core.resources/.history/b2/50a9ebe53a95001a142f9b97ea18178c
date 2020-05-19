@@ -1,0 +1,58 @@
+package com.hongfox.ui;
+
+import com.hongfox.domain.Employee;
+import com.hongfox.services.NameListServices;
+import com.hongfox.services.TeamServices;
+import com.hongfox.utility.TSUtility;
+
+public class TeamView {
+
+	private NameListServices nameSvc = new NameListServices();
+	private TeamServices teamSvc = new TeamServices();
+
+	public static void main(String[] args) {
+		TeamView teamview = new TeamView();
+		teamview.enterMainMenu();
+	}
+
+	public void enterMainMenu() {
+		for (;;) {
+			System.out.println("-------------------------------------团队调度系统----------------------------------");
+			System.out.println("id\t姓名\t姓名\t工资\t职位\t状态\t奖金\t股份\t设备");
+
+			listAllMember();
+			System.out.println("----------------------------------------------------------------------------------");
+			System.out.println("1.团队列表 2.添加团队成员 3.删除团队成员 4.退出 请选择(1-4):");
+			char menu = TSUtility.readMenuSelection();
+			switch(menu) {
+			case '1':
+				getTeam();
+			case '2':
+				addMember();
+			}
+		}
+	}
+
+	private void listAllMember() {
+		Employee[] employees = nameSvc.getAllEmployees();
+		for (int i = 0; i < employees.length; i++) {
+			System.out.println(employees[i]);
+		}
+	}
+
+	private void getTeam() {
+		Employee[] team = teamSvc.getTeam();
+		System.out.println("团队成员");
+		for (int i = 0; i < teamSvc.getTotal() ;i++) {
+			System.out.println(team[i]);
+		}
+	}
+
+	private void addMember() {
+
+	}
+
+	private void deleteMember() {
+
+	}
+}

@@ -1,0 +1,39 @@
+package com.hongfox.domain;
+
+public class Designer extends Programmer {
+	private double bonus;
+	
+	public Designer(int id, String name, int age, double salary, int memberId, Equitment equitment, Status status,double bonus) {
+		super(id, name, age, salary, memberId, equitment, status);
+		this.bonus = bonus;
+	}
+
+	public double getBonus() {
+		return bonus;
+	}
+
+	public void setBonus(double bonus) {
+		this.bonus = bonus;
+	}
+	
+	public int getMemberId() {
+		return memberId;
+	}
+	public void setMemberId(int memberId) {
+		this.memberId = memberId;
+	}
+	public Equitment getEquitment() {
+		return equitment;
+	}
+	public void setEquitment(Equitment equitment) {
+		this.equitment = equitment;
+	}
+	public Status getStatus() {
+		return status;
+	}
+	public void setStatus(Status status) {
+		this.status = status;
+	}
+	
+	
+}

@@ -1,0 +1,30 @@
+package com.hongfox.domain;
+
+public class PC implements Equitment {
+	private String model;
+	private String display;
+	
+	
+	
+	public PC() {
+		super();
+	}
+
+
+
+	public PC(String model, String display) {
+		super();
+		this.model = model;
+		this.display = display;
+	}
+
+
+
+	@Override
+	public String getDescription() {
+		return model + "(" + display + ")";
+	}
+	
+	
+	
+}

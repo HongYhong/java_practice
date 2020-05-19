@@ -1,0 +1,21 @@
+package com.hongfox.ui;
+
+import com.hongfox.services.NameListServices;
+import com.hongfox.services.TeamServices;
+
+public class TeamView {
+	
+	private NameListServices nameSvc = new NameListServices();
+	private TeamServices teamSvc = new TeamServices();
+	
+	public void enterMainMenu() {
+		listAllMember();
+	}
+	
+	public void listAllMember() {
+		nameSvc.getAllEmployees();
+	}
+	
+	
+	
+}

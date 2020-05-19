@@ -1,0 +1,22 @@
+package com.hongfox.domain;
+
+import com.hongfox.services.Status;
+
+public class Architect extends Designer {
+	private double stock;
+
+	public Architect(int id, String name, int age, double salary, Equitment equitment, Status status, double bonus,
+			double stock) {
+		super(id, name, age, salary, equitment, status, bonus);
+		this.stock = stock;
+	}
+
+	public double getStock() {
+		return stock;
+	}
+
+	public void setStock(int stock) {
+		this.stock = stock;
+	}
+
+}

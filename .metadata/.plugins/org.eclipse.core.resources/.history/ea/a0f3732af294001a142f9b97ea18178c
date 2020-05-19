@@ -1,0 +1,16 @@
+package com.hongfox.junit;
+
+import org.junit.Test;
+
+import com.hongfox.services.NameListServices;
+import com.hongfox.services.TeamServices;
+
+public class testTeamServices {
+	@Test
+	public void testAddMember() {
+		TeamServices teamservices = new TeamServices();
+		NameListServices namelisListServices = new NameListServices();
+		Employee[] employees = namelisListServices.getAllEmployees();
+		teamservices.addMember(e);
+	}
+}

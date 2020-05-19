@@ -1,0 +1,14 @@
+package com.hongfox.domain;
+
+public class Programmer extends Employee {
+	public Programmer(int id, String name, int age, double salary,int memberId,Equitment equitment,Status status) {
+		super(id, name, age, salary);
+		this.equitment = equitment;
+		this.status = status;
+	}
+	private int memberId;
+	private Equitment equitment;
+	private Status status;
+	
+	
+}

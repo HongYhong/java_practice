@@ -1,0 +1,70 @@
+package com.hongfox.services;
+import com.hongfox.domain.*;
+import static com.hongfox.services.Data.*;
+import static com.hongfox.services.TeamException.*;
+
+public class NameListServices {
+	Employee[] employees;
+	
+	public NameListServices() {
+		employees = new Employee[EMPLOYEES.length];
+		Equitment equitment = null;
+		double bonus;
+		double stock;
+		
+		for (int i = 0; i < EMPLOYEES.length;i++) {
+			int type = Integer.parseInt(EMPLOYEES[i][0]);
+			int id = Integer.parseInt(EMPLOYEES[i][1]);
+			int age = Integer.parseInt(EMPLOYEES[i][2]);
+			String name = EMPLOYEES[i][3];
+			int salary = Integer.parseInt(EMPLOYEES[i][4]);
+			
+			int equitmenttype = EQUITMENT[i][0]) ;
+			
+			switch(Integer.parseInt(EQUITMENT[i][0]) ) {
+			case PC:
+				equitment = new PC(EQUITMENT[i][1], EQUITMENT[i][2]);
+				break;
+			case NOTEBOOK:
+				equitment = new NoteBook(EQUITMENT[i][1], Integer.parseInt(EQUITMENT[i][2]));
+				break;
+			case PRINTER:
+				equitment = new Printer(EQUITMENT[i][1], EQUITMENT[i][2]);
+			default:
+				break;
+			}
+			
+			Status status = Status.FREE;
+			switch(type) {
+			case EMPLOYEE:
+				employees[i] = new Employee(id, name, age, salary);
+				break;
+			case PROGRAMMER:
+				employees[i] = new Programmer(id, name, age, salary, equitment, status);
+				break;
+			case DESIGNER:
+				bonus = Double.parseDouble(EMPLOYEES[i][5]);
+				employees[i] = new Designer(id, name, age, salary, equitment, status,bonus);
+				break;
+			case ARCHITECT:
+				bonus = Double.parseDouble(EMPLOYEES[i][5]);
+				stock = Double.parseDouble(EMPLOYEES[i][6]);
+				employees[i] = new Architect(id, name, age, salary, equitment, status, bonus, stock);
+				break;
+			}
+		}
+	}
+	
+	public Employee[] getAllEmployees() {
+		return employees;
+	}
+	
+	public Employee getEmployee (int id) throws TeamException {
+		if (id < 1 || id > 12) {
+			throw new TeamException("找不到指定用户！");
+		}
+		return employees[id-1];
+	}
+	
+	
+}

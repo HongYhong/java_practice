@@ -1,0 +1,51 @@
+package com.hongfox.services;
+
+import com.hongfox.domain.Programmer;
+
+public class TeamServices {
+	private static int counter = 1;
+	final int MAX_MEMBER = 5;
+	private Programmer[] team = new Programmer[MAX_MEMBER];
+	private int total = 0;
+
+	public Programmer[] getTeam() {
+		Programmer[] team = new Programmer[total];
+		for (int i = 0; i < total; i++) {
+			team[i] = this.team[i];
+		}
+		return team;
+	}
+/**
+ * 
+ * @Description 最多一名架构师，两名设计师，三名程序员
+ * @author yanhong hong Email:a524664992@gmail.com
+ * @version
+ * @data 2020年5月10日下午5:55:33
+ *
+ *
+ * @param p
+ * @throws TeamException
+ *
+ */
+	public void addMember(Programmer p) throws TeamException {
+		
+		if (total >= MAX_MEMBER) {
+			throw new TeamException("超出队伍人数阈值。");
+		}
+		p.setMemberId(counter++);
+		team[total++] = p;
+	}
+
+	public void removeMember(int memberId) throws TeamException {
+		for (int i = 0; i < total; i++) {
+			if (team[i].getMemberId() == memberId) {
+				for (int j = i; j < total; j++) {
+					team[j] = team[j + 1];
+				}
+				break;
+			}
+		}
+		throw new TeamException("找不到指定的用户。");
+	}
+
+}

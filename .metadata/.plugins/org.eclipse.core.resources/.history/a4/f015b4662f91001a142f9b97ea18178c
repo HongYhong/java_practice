@@ -1,0 +1,16 @@
+package com.hongfox.domain;
+
+public class Printer implements Equitment {
+	private String name;
+	private String type;
+	public Printer(String name, Stirng type) {
+		super();
+		this.name = name;
+		this.type = type;
+	}
+	public Printer() {
+		super();
+	}
+	
+	
+}
